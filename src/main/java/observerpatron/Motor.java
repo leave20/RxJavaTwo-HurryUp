@@ -6,7 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 public class Motor implements Observer{
 
     public Motor() {
-        log.info("Motor creado");
+        log.info("Motor arrancando");
     }
 
     @Override
