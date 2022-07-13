@@ -1,7 +1,9 @@
 package observable;
 
-public class Observable {
+public class ObservableWithJustRx {
     public static void main(String[] args) {
 
     }
+
+
 }
