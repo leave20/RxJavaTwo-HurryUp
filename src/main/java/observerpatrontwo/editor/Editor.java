@@ -5,7 +5,7 @@ import observerpatrontwo.publisher.EventManager;
 import java.io.File;
 
 public class Editor {
-    public EventManager eventManager;
+    public final EventManager eventManager;
     private File file;
 
     public Editor() {
@@ -18,6 +18,7 @@ public class Editor {
     }
 
     public void saveFile() throws Exception {
+
       if (this.file != null) {
         eventManager.publish("save", file);
       }else{
