@@ -12,6 +12,17 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+
+/**
+ * But what if we need to cancel the asynchronous task in the RxJava 2 chain before it is finished?
+ * This is so important for Android, as our Activity could get killed any time, and we want the RxJava 2 task in it,
+ * to be cancel if the Activity ever got killed… So we definitely need a way.
+ * <p><b>Disposable …</p></b>
+ * The good news is, this is pretty simple here. It is using something call {@code .Disposable}
+ * <p>
+ * Whenever we create a RxJava 2 chain, and to it, a is return. e.g.{@code subscribe disposable}
+ */
+
 @Slf4j
 public class ObservableWithCreateRx {
 
@@ -36,15 +47,7 @@ public class ObservableWithCreateRx {
         subscription.dispose();
     }
 
-    /**
-     * But what if we need to cancel the asynchronous task in the RxJava 2 chain before it is finished?
-     * This is so important for Android, as our Activity could get killed any time, and we want the RxJava 2 task in it,
-     * to be cancel if the Activity ever got killed… So we definitely need a way.
-     * <p><b>Disposable …</p></b>
-     * The good news is, this is pretty simple here. It is using something call {@code .Disposable}
-     * <p>
-     * Whenever we create a RxJava 2 chain, and to it, a is return. e.g.{@code subscribe disposable}
-     */
+
     static void observableCreateSecondSample() throws InterruptedException {
 
         ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();

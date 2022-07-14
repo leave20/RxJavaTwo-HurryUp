@@ -8,6 +8,7 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/sonarlint/index.pb
 .idea/sonarlint/
 .idea/checkstyle-idea.xml
 *.iws
