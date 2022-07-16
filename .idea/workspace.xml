@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d2490c-cb6f-4f3b-bc00-36cf9265c74e" name="Changes" comment="feat: add Observable.just() concept in Readme.md">
-      <change afterPath="$PROJECT_DIR$/src/main/java/observer/IObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/observer/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="70d2490c-cb6f-4f3b-bc00-36cf9265c74e" name="Changes" comment="feat: add Observer concept in Readme.md">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/observable/ObservableWithCreateRx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observable/ObservableWithCreateRx.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/observable/ObservableWithJustRx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observable/ObservableWithJustRx.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observer/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observer/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,20 +47,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.ObservableWithJustRx">
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="observerpatrontwo.Demo" />
@@ -136,6 +134,9 @@
       <workItem from="1657629864764" duration="15637000" />
       <workItem from="1657686771921" duration="12348000" />
       <workItem from="1657720963396" duration="17527000" />
+      <workItem from="1657762819179" duration="379000" />
+      <workItem from="1657808945004" duration="6579000" />
+      <workItem from="1657970117976" duration="2265000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add concept in Readme and create observer patron sample.">
       <created>1657658107807</created>
@@ -172,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657750006039</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: add Observer concept in Readme.md">
+      <created>1657762922168</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657762922169</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,6 +203,7 @@
     <MESSAGE value="feat: add observable concept on Readme.md" />
     <MESSAGE value="fix: repare bug sonarlint" />
     <MESSAGE value="feat: add Observable.just() concept in Readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Observable.just() concept in Readme.md" />
+    <MESSAGE value="feat: add Observer concept in Readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add Observer concept in Readme.md" />
   </component>
 </project>
