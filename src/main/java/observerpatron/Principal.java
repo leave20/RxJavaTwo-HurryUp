@@ -9,7 +9,6 @@ public class Principal {
 //motor es observador
 //acelerador es observado(sujeto)
 
-
         Motor motorV8 = new Motor();
         Acelerator acelerador = new Acelerator();
 

@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d2490c-cb6f-4f3b-bc00-36cf9265c74e" name="Changes" comment="feat: add Observer concept in Readme.md">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+    <list default="true" id="70d2490c-cb6f-4f3b-bc00-36cf9265c74e" name="Changes" comment="feat: complete Observer concept in Readme.md">
+      <change afterPath="$PROJECT_DIR$/src/main/java/observable/ColdAndHotObservables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/observable/ObservableWithJustRx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observable/ObservableWithJustRx.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/observer/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observer/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observable/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observable/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observerpatron/Acelerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observerpatron/Acelerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observerpatron/Motor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observerpatron/Motor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observerpatron/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observerpatron/Principal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -136,7 +137,8 @@
       <workItem from="1657720963396" duration="17527000" />
       <workItem from="1657762819179" duration="379000" />
       <workItem from="1657808945004" duration="6579000" />
-      <workItem from="1657970117976" duration="2265000" />
+      <workItem from="1657970117976" duration="3041000" />
+      <workItem from="1658111648222" duration="6583000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add concept in Readme and create observer patron sample.">
       <created>1657658107807</created>
@@ -180,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657762922169</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: complete Observer concept in Readme.md">
+      <created>1657972547458</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1657972547458</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +213,7 @@
     <MESSAGE value="fix: repare bug sonarlint" />
     <MESSAGE value="feat: add Observable.just() concept in Readme.md" />
     <MESSAGE value="feat: add Observer concept in Readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add Observer concept in Readme.md" />
+    <MESSAGE value="feat: complete Observer concept in Readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: complete Observer concept in Readme.md" />
   </component>
 </project>

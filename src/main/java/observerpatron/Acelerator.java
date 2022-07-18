@@ -10,18 +10,13 @@ public class Acelerator implements Observable{
     public Acelerator() {
         observers=new ArrayList<>();
     }
-
-
-
     public void pisarAcelator() {
         //subir la potencia del motor
         notification();
     }
-
     public void enlazarObserver(Observer observer) {
         observers.add(observer);
     }
-
     @Override
     public void notification() {
         for (Observer observer : observers) {
