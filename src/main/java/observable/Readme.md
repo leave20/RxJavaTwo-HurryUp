@@ -151,7 +151,7 @@ public class Launcher {
 Con los operadores map() y filter() entre el Observable de origen y el Observer, onNext()
 entregará cada elemento al operador map(). Internamente, actuará como un observador intermediario
 y convertirá cada cadena a su lengths(). Esto, a su vez, llamará a onNext() en filter() para pasar ese entero,
-y la condición lambda i -> i >= 5 suprimirá las emisiones que no tengan al menos cinco caracteres de longitud.
+y la condición lambda `i -> i >= 5` suprimirá las emisiones que no tengan al menos cinco caracteres de longitud.
 Finalmente, el operador filter() llamará a onNext() para entregar cada elemento al observador final donde se imprimirán.
 
 ### Nota
@@ -437,6 +437,7 @@ public class Launcher {
     }
 }
 ```
+
 ```
  Observer 1: Alpha
  Observer 2: 5
@@ -449,3 +450,325 @@ public class Launcher {
  Observer 1: Epsilon
  Observer 2: 7
 ```
+
+### Otros Observables
+
+#### Observable.range()
+
+Para emitir un rango consecutivo de enteros, puede usar Observable.range().
+Esto emitirá cada número desde un valor inicial e incrementará cada emisión hasta que se
+alcance el conteo especificado.
+Todos estos números se pasan a través del evento onNext(), seguido del evento onComplete()
+
+```java
+import io.reactivex.Observable;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Observable.range(1, 10)
+                .subscribe(s -> System.out.println("RECEIVED: " + s));
+    }
+}
+```
+
+```
+ RECEIVED: 1
+ RECEIVED: 2
+ RECEIVED: 3
+ RECEIVED: 4
+ RECEIVED: 5
+ RECEIVED: 6
+ RECEIVED: 7
+ RECEIVED: 8
+ RECEIVED: 9
+ RECEIVED: 10
+```
+
+Tenga en cuenta que los dos argumentos para Observable.range() no son límites inferior/superior.
+El primer argumento es el valor inicial. El segundo argumento es el recuento total de emisiones,
+que incluirá tanto el valor inicial como los valores incrementados.
+Intente emitir Observable.range(5,10), y notará que emite 5 seguido de los siguientes nueve números
+enteros consecutivos (para un total de 10 emisiones)
+
+```java
+
+import io.reactivex.Observable;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Observable.range(5, 10)
+                .subscribe(s -> System.out.println("RECEIVED: " + s));
+    }
+}
+```
+
+```
+ RECEIVED: 5
+ RECEIVED: 6
+ RECEIVED: 7
+ RECEIVED: 8
+ RECEIVED: 9
+ RECEIVED: 10
+ RECEIVED: 11
+ RECEIVED: 12
+ RECEIVED: 13
+ RECEIVED: 14
+```
+
+#### Observable.interval()
+
+Como hemos visto, los Observables tienen un concepto de emisiones a lo largo del tiempo.
+Las emisiones se entregan desde la fuente hasta el observador secuencialmente.
+Pero estas emisiones pueden espaciarse en el tiempo dependiendo de cuándo las proporcione la fuente.
+Nuestro ejemplo de JavaFX con ToggleButton demostró esto, ya que cada clic resultó en una emisión de verdadero o falso.
+
+Pero veamos un ejemplo simple de un Observable basado en el tiempo usando Observable.interval().
+Emitirá una emisión larga consecutiva (comenzando en 0) en cada intervalo de tiempo especificado.
+Aquí tenemos un `Observable<Long>` que emite cada segundo:
+
+```java
+import io.reactivex.Observable;
+
+import java.util.concurrent.TimeUnit;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Observable.interval(1, TimeUnit.SECONDS)
+                .subscribe(s -> System.out.println(s + " Mississippi"));
+        sleep(5000);
+    }
+
+    public static void sleep(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+```
+ 0 Mississippi
+ 1 Mississippi
+ 2 Mississippi
+ 3 Mississippi
+ 4 Mississippi
+```
+
+#### Observable.future()
+
+Los Observables RxJava son mucho más robustos y expresivos que los Futuros, pero si tiene bibliotecas existentes
+que producen Futuros, puede convertirlos fácilmente en Observables a través de Observable.future():
+
+```java
+ import io.reactivex.Observable;
+
+import java.util.concurrent.Future;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Future<String> future = new Future<String>() {
+            @Override
+            public boolean isDone() {
+                return false;
+            }
+
+            @Override
+            public String get() throws InterruptedException, ExecutionException {
+                return "Hello";
+            }
+        };
+        Observable.fromFuture(future)
+                .subscribe(log::info);
+    }
+}
+```
+
+#### Observable.empty()
+
+Aunque esto puede no parecer útil todavía, a veces es útil crear un Observable que no emita nada y llame a onComplete():
+
+```java
+ import io.reactivex.Observable;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Observable<String> empty = Observable.empty();
+        empty.subscribe(System.out::println,
+                Throwable::printStackTrace,
+                () -> System.out.println("Done!"));
+    }
+}
+
+```
+
+#### Observable.never()
+
+Un primo cercano de Observable.empty() es Observable.never().
+La única diferencia entre ellos es que nunca llama a onComplete(), lo que deja a los observadores esperando
+para siempre las emisiones, pero en realidad nunca da ninguna:
+
+````java
+import io.reactivex.Observable;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Observable<String> empty = Observable.never();
+        empty.subscribe(System.out::println,
+                Throwable::printStackTrace,
+                () -> System.out.println("Done!"));
+        sleep(5000);
+    }
+
+    public static void sleep(int millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+````
+
+#### Observable.error()
+
+Esto también es algo que probablemente solo hará con las pruebas, pero puede crear un Observable
+que llame inmediatamente a onError() con una excepción específica:
+
+````java
+ import io.reactivex.Observable;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Observable.error(new Exception("Crash and burn!"))
+                .subscribe(i -> System.out.println("RECEIVED: " + i),
+                        Throwable::printStackTrace,
+                        () -> System.out.println("Done!"));
+    }
+}
+````
+
+También puede proporcionar la excepción a través de una lambda para que se cree desde cero y se proporcionen
+instancias de excepción separadas a cada observador.
+
+````java
+ import io.reactivex.Observable;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Observable.error(() -> new Exception("Crash and burn!"))
+                .subscribe(i -> System.out.println("RECEIVED: " + i),
+                        Throwable::printStackTrace,
+                        () -> System.out.println("Done!"));
+    }
+}
+````
+
+#### Observable.defer()
+
+Observable.defer() es un poderoso factory debido a su capacidad para crear un estado separado para cada observador.
+Al usar ciertos factories de Observable, puede encontrarse con algunos matices si su fuente tiene estado y desea generar
+un estado separado para cada observador.
+Es posible que su fuente Observable no capture algo que haya cambiado en sus parámetros y envíe emisiones que estén
+obsoletas.
+
+He aquí un ejemplo sencillo: tenemos un
+Observable.range() se basó en dos propiedades int estáticas, iniciar y contar.
+Si se suscribe a este Observable, modifica el conteo y luego se suscribe nuevamente, encontrará que el segundo
+Observador no ve este cambio:
+
+````java
+import io.reactivex.Observable;
+
+public class Launcher {
+    private static int start = 1;
+    private static int count = 5;
+
+    public static void main(String[] args) {
+        Observable<Integer> source = Observable.range(start, count);
+        source.subscribe(i -> System.out.println("Observer 1: " + i));
+        //modify count
+        count = 10;
+        source.subscribe(i -> System.out.println("Observer 2: " + i));
+    }
+}
+````
+
+````
+ Observer 1: 1
+ Observer 1: 2
+ Observer 1: 3
+ Observer 1: 4
+ Observer 1: 5
+ Observer 2: 1
+ Observer 2: 2
+ Observer 2: 3
+ Observer 2: 4
+ Observer 2: 5
+````
+
+Para remediar este problema de las fuentes Observables que no capturan los cambios de estado,
+puede crear un Observable nuevo para cada suscripción.
+Esto se puede lograr usando Observable.defer(), que acepta una lambda que indica cómo generar un Observable para
+cada suscripción.
+Debido a que esto crea un nuevo Observable cada vez, reflejará cualquier cambio que impulse sus parámetros.
+
+````java
+import io.reactivex.Observable;
+
+public class Launcher {
+    private static int start = 1;
+    private static int count = 5;
+
+    public static void main(String[] args) {
+        Observable<Integer> source = Observable.defer(() ->
+                Observable.range(start, count));
+        source.subscribe(i -> System.out.println("Observer 1: " + i));
+        //modify count
+        count = 10;
+        source.subscribe(i -> System.out.println("Observer 2: " + i));
+    }
+}
+````
+
+````
+ Observer 1: 1
+ Observer 1: 2
+ Observer 1: 3
+ Observer 1: 4
+ Observer 1: 5
+ Observer 2: 1
+ Observer 2: 2
+ Observer 2: 3
+ Observer 2: 4
+ Observer 2: 5
+ Observer 2: 6
+ Observer 2: 7
+ Observer 2: 8
+ Observer 2: 9
+ Observer 2: 10
+````
+
+#### Observable.fromCallable()
+
+Si necesita realizar un cálculo o una acción y luego emitirlo, puede usar Observable.just()
+(o Single.just() o Maybe.just(), que aprenderemos más adelante).
+Pero a veces, queremos hacer esto de manera perezosa o diferida.
+Además, si ese procedimiento arroja un error, queremos que se emita en la cadena Observable a través de onError()
+en lugar de arrojar el error en esa ubicación de la manera tradicional de Java. Por ejemplo,
+si intenta envolver Observable.just() alrededor de una expresión que divide 1 por 0, se lanzará la excepción,
+no se emitirá hasta Observer:
+
+````java
+import io.reactivex.Observable;
+
+public class Launcher {
+    public static void main(String[] args) {
+        Observable.just(1 / 0)
+                .subscribe(i -> System.out.println("RECEIVED: " + i),
+                        e -> System.out.println("Error Captured: " + e));
+    }
+}
+
+````

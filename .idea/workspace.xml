@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d2490c-cb6f-4f3b-bc00-36cf9265c74e" name="Changes" comment="feat: complete Observer concept in Readme.md">
-      <change afterPath="$PROJECT_DIR$/src/main/java/observable/ColdAndHotObservables.java" afterDir="false" />
+    <list default="true" id="70d2490c-cb6f-4f3b-bc00-36cf9265c74e" name="Changes" comment="feat: add Cold and Hot Observable concept on Readme.md">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/observable/ColdAndHotObservables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observable/ColdAndHotObservables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/observable/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observable/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/observerpatron/Acelerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observerpatron/Acelerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/observerpatron/Motor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observerpatron/Motor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/observerpatron/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/observerpatron/Principal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +60,20 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ObservableWithJustRx">
+  <component name="RunManager" selected="Application.ColdAndHotObservables">
+    <configuration name="ColdAndHotObservables" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="observable.ColdAndHotObservables" />
+      <module name="RxJavaTwo-HurryUp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="observable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="observerpatrontwo.Demo" />
       <module name="RxJavaTwo-HurryUp" />
@@ -117,6 +128,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ColdAndHotObservables" />
         <item itemvalue="Application.ObservableWithJustRx" />
         <item itemvalue="Application.ObservableWithCreateRx" />
         <item itemvalue="Application.Demo" />
@@ -138,7 +150,12 @@
       <workItem from="1657762819179" duration="379000" />
       <workItem from="1657808945004" duration="6579000" />
       <workItem from="1657970117976" duration="3041000" />
-      <workItem from="1658111648222" duration="6583000" />
+      <workItem from="1658111648222" duration="6689000" />
+      <workItem from="1658153145437" duration="1190000" />
+      <workItem from="1658171970676" duration="96000" />
+      <workItem from="1658200409404" duration="72000" />
+      <workItem from="1658413520830" duration="13060000" />
+      <workItem from="1658478232377" duration="357000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add concept in Readme and create observer patron sample.">
       <created>1657658107807</created>
@@ -189,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657972547458</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: add Cold and Hot Observable concept on Readme.md">
+      <created>1658122063235</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1658122063235</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +238,17 @@
     <MESSAGE value="feat: add Observable.just() concept in Readme.md" />
     <MESSAGE value="feat: add Observer concept in Readme.md" />
     <MESSAGE value="feat: complete Observer concept in Readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: complete Observer concept in Readme.md" />
+    <MESSAGE value="feat: add Cold and Hot Observable concept on Readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add Cold and Hot Observable concept on Readme.md" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.Exception" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
